@@ -1,11 +1,12 @@
 "use client";
 
+import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import TaskForm from '../../../../components/task/TaskForm';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-export default function CreateTaskPage() {
+function CreateTaskContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const projectId = searchParams.get('projectId');
@@ -33,5 +34,17 @@ export default function CreateTaskPage() {
 
       <TaskForm projectId={projectId} />
     </div>
+  );
+}
+
+export default function CreateTaskPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center h-64 text-gray-500">
+        <span className="animate-pulse">Loading task details...</span>
+      </div>
+    }>
+      <CreateTaskContent />
+    </Suspense>
   );
 }
