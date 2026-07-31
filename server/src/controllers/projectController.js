@@ -24,7 +24,6 @@ const getMemberId = (member) => {
 };
 
 const isProjectMember = (project, user) => {
-  // الأدمن لديه صلاحية الوصول لكل المشاريع تلقائياً
   if (user.role === 'Admin') return true;
 
   const currentUserId = user._id.toString();
@@ -104,7 +103,6 @@ exports.getProjects = async (req, res) => {
     const limit = Math.max(parseInt(req.query.limit) || 10, 1);
     const skip = (page - 1) * limit;
 
-    // لو المستخدم Admin يعرض كل المشاريع، غير ذلك يعرض مشاريعه فقط
     let filter = {};
     if (req.user.role !== 'Admin') {
       filter = {

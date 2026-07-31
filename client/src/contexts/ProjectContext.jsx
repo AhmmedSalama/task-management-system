@@ -10,7 +10,6 @@ export const ProjectProvider = ({ children }) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // دالة جلب المشاريع (بتدعم البحث والترتيب)
   const fetchProjects = useCallback(async (params = {}) => {
     setLoading(true);
     try {
@@ -23,7 +22,6 @@ export const ProjectProvider = ({ children }) => {
     }
   }, []);
 
-  // دالة الحذف
   const deleteProject = async (id) => {
     try {
       await projectService.deleteProject(id);

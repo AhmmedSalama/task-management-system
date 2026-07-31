@@ -7,7 +7,6 @@ import Button from '../ui/Button';
 
 const RegisterForm = () => {
   const { register } = useContext(AuthContext);
-  // حسب الـ Backend، التسجيل قد يحتاج (name, email, password)
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);

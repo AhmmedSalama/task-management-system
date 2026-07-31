@@ -75,7 +75,6 @@ export default function AdminUsersPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-        {/* قائمة المستخدمين مع الباجينيشن */}
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden lg:col-span-1 flex flex-col justify-between">
           <div>
             <div className="p-4 bg-gray-50 border-b border-gray-100 font-semibold text-gray-700 flex items-center justify-between">
@@ -124,7 +123,6 @@ export default function AdminUsersPage() {
             </div>
           </div>
 
-          {/* أزرار التنقل (Pagination Footer) */}
           <div className="p-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -146,7 +144,6 @@ export default function AdminUsersPage() {
           </div>
         </div>
 
-        {/* عرض تفاصيل المستخدم */}
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 lg:col-span-2 min-h-[600px]">
           {loadingDetails ? (
             <div className="flex justify-center items-center h-[400px]">

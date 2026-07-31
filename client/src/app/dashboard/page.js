@@ -35,7 +35,6 @@ export default function DashboardPage() {
     );
   }
 
-  // حساب نسبة إنجاز المهام بناءً على البيانات المسترجعة من الخادم[cite: 10]
   const completionRate = stats?.totalTasks > 0 
     ? Math.round((stats.doneTasks / stats.totalTasks) * 100) 
     : 0;

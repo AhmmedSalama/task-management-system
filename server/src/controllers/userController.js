@@ -2,7 +2,6 @@ const User = require('../models/User');
 const Project = require('../models/Project');
 const Task = require('../models/Task');
 
-// جلب كل المستخدمين مع الباجينيشن (لـ Admin فقط)
 exports.getUsers = async (req, res) => {
   try {
     const page = Math.max(parseInt(req.query.page) || 1, 1);
@@ -33,7 +32,6 @@ exports.getUsers = async (req, res) => {
   }
 };
 
-// جلب تفاصيل مستخدم معين مع مشاريعه ومهامه (لـ Admin فقط)
 exports.getUserDetailsForAdmin = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -43,12 +41,10 @@ exports.getUserDetailsForAdmin = async (req, res) => {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
 
-    // جلب المشاريع التي يمتلكها أو مشارك فيها
     const projects = await Project.find({
       $or: [{ owner: userId }, { members: userId }]
     }).populate('owner members', 'name email');
 
-    // جلب المهام المسندة إليه
     const tasks = await Task.find({ assignee: userId }).populate('project', 'name');
 
     return res.status(200).json({

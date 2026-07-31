@@ -19,7 +19,6 @@ export default function EditProjectPage() {
         const response = await projectService.getProjectById(id);
         setProject(response.data);
       } catch (error) {
-        // لو المشروع مش موجود نرجعه لصفحة المشاريع
         router.push('/dashboard/projects');
       } finally {
         setLoading(false);

@@ -28,7 +28,6 @@ export default function TaskForm({ projectId }) {
     },
   });
 
-  // جلب أعضاء المشروع عشان نحطهم في قائمة (Assignee)
   useEffect(() => {
     const fetchMembers = async () => {
       try {
@@ -45,7 +44,6 @@ export default function TaskForm({ projectId }) {
   }, [projectId]);
 
   const onSubmit = async (data) => {
-    // تنظيف البيانات والتأكد من إرسال null بدلاً من النصوص الفارغة للباك إند
     const taskData = {
       ...data,
       projectId,

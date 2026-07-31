@@ -4,7 +4,6 @@ const Project = require('../models/Project');
 const User = require('../models/User');
 
 const isProjectMember = (project, user) => {
-  // الأدمن لديه صلاحية كاملة لرؤية كل المشاريع والتاسكات
   if (user.role === 'Admin') return true;
 
   const currentUserId = user._id.toString();
@@ -24,7 +23,6 @@ const isProjectOwnerOrAdmin = (project, user) => {
   );
 };
 
-// التحقق مما إذا كان المستخدم يملك صلاحية تعديل أو حذف هذه المهمة بالذات
 const canModifyTask = (project, task, user) => {
   if (user.role === 'Admin') return true;
   if (project.owner.toString() === user._id.toString()) return true;
@@ -33,7 +31,6 @@ const canModifyTask = (project, task, user) => {
   const isAssignee = task.assignee?.toString() === userId;
   const isCreator = task.creator?.toString() === userId;
 
-  // العضو العادي يمكنه تعديل/حذف تاسكه الخاص فقط (المسند إليه أو الذي أنشأه)
   return isAssignee || isCreator;
 };
 
@@ -138,7 +135,6 @@ exports.getTasks = async (req, res) => {
 
     let projectIds = [];
 
-    // لو أدمن، يجيب كل المشاريع بدون تقييد
     if (req.user.role === 'Admin') {
       const allProjects = await Project.find({}).select('_id');
       projectIds = allProjects.map((p) => p._id);

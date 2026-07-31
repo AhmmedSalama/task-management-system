@@ -9,7 +9,6 @@ exports.getDashboardStats = async (req, res) => {
     let projectsFilter = {};
     let tasksFilter = {};
 
-    // لو المستخدم مش Admin، نحسب الإحصائيات لماريجو ومهامه فقط
     if (req.user.role !== 'Admin') {
       const accessibleProjects = await Project.find({
         $or: [

@@ -23,5 +23,5 @@ export const taskSchema = z.object({
     .string()
     .optional()
     .nullable()
-    .transform(val => val === '' ? null : val), // تحويل النص الفارغ لـ null للباك إند
+    .transform(val => val === '' ? null : val), /
 });

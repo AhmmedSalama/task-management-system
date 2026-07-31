@@ -32,9 +32,8 @@ export default function ProjectForm({ initialData = null, isEditing = false }) {
         await projectService.createProject(data);
         toast.success('Project created successfully');
       }
-      // نرجع لصفحة المشاريع بعد النجاح
       router.push('/dashboard/projects');
-      router.refresh(); // عشان نجبر الصفحة تعمل إعادة تحميل للبيانات الجديدة
+      router.refresh(); 
     } catch (error) {
       toast.error(error.response?.data?.message || 'Something went wrong');
     }

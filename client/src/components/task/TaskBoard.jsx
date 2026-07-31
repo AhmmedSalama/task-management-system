@@ -156,7 +156,6 @@ export default function TaskBoard({ projectId }) {
         })}
       </div>
 
-      {/* نافذة تعديل المهمة */}
       {editingTask && (
         <EditTaskModal 
           task={editingTask} 

@@ -11,7 +11,6 @@ export const TaskProvider = ({ children }) => {
   const [allTasks, setAllTasks] = useState([]);
   const [loadingTasks, setLoadingTasks] = useState(false);
 
-  // جلب مهام مشروع محدد
   const fetchTasks = useCallback(async (projectId, params = {}) => {
     setLoadingTasks(true);
     try {
@@ -25,7 +24,6 @@ export const TaskProvider = ({ children }) => {
     }
   }, []);
 
-  // جلب كل المهام (للجدول العام)
   const fetchAllTasks = useCallback(async (params = {}) => {
     setLoadingTasks(true);
     try {
@@ -39,7 +37,6 @@ export const TaskProvider = ({ children }) => {
     }
   }, []);
 
-  // إضافة مهمة
   const addTask = async (taskData) => {
     try {
       const response = await taskService.createTask(taskData);
@@ -52,7 +49,6 @@ export const TaskProvider = ({ children }) => {
     }
   };
 
-  // تعديل مهمة
   const editTask = async (taskId, taskData) => {
     try {
       const response = await taskService.updateTask(taskId, taskData);
@@ -66,7 +62,6 @@ export const TaskProvider = ({ children }) => {
     }
   };
 
-  // تغيير حالة المهمة
   const changeTaskStatus = async (taskId, newStatus) => {
     const previousTasks = [...tasks];
     const previousAllTasks = [...allTasks];
@@ -83,7 +78,6 @@ export const TaskProvider = ({ children }) => {
     }
   };
 
-  // حذف مهمة
   const removeTask = async (taskId) => {
     try {
       await taskService.deleteTask(taskId);

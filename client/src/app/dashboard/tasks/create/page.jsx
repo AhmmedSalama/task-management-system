@@ -10,7 +10,6 @@ export default function CreateTaskPage() {
   const router = useRouter();
   const projectId = searchParams.get('projectId');
 
-  // لو مفيش projectId في الرابط، نرجعه لصفحة المشاريع
   if (!projectId) {
     if (typeof window !== 'undefined') router.push('/dashboard/projects');
     return null;

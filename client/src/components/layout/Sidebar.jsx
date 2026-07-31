@@ -14,7 +14,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
     if (logout) {
       logout();
     } else {
-      localStorage.removeItem('token'); // أو أي طريقة تخزين مستخدمها للتوكن
+      localStorage.removeItem('token'); 
       router.push('/login');
     }
   };
@@ -47,7 +47,6 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 
   return (
     <>
-      {/* خلفية سوداء شفافة عند فتح السايد بار على الموبايل */}
       {isOpen && (
         <div 
           onClick={() => setIsOpen(false)}
@@ -55,11 +54,9 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         />
       )}
 
-      {/* السايد بار */}
       <aside className={`w-64 bg-gray-900 text-white min-h-screen flex flex-col fixed left-0 top-0 z-50 transition-transform duration-300 ease-in-out ${
         isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       }`}>
-        {/* الهيدر الخاص بالسايد بار */}
         <div className="p-6 border-b border-gray-800 flex items-center justify-between">
           <h1 className="text-2xl font-bold text-white tracking-wide">TMS App</h1>
           <button 
@@ -70,7 +67,6 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           </button>
         </div>
 
-        {/* الروابط */}
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -91,7 +87,6 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           })}
         </nav>
 
-        {/* قسم بيانات المستخدم وزر الخروج في أسفل السايد بار */}
         <div className="p-4 border-t border-gray-800 bg-gray-950/50">
           <div className="flex items-center gap-3 mb-3 px-2">
             <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm shrink-0">

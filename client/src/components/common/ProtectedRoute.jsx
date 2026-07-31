@@ -14,7 +14,6 @@ export default function ProtectedRoute({ children }) {
     }
   }, [user, loading, router]);
 
-  // أثناء تحميل بيانات المستخدم من الـ API
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -23,11 +22,9 @@ export default function ProtectedRoute({ children }) {
     );
   }
 
-  // لو مفيش مستخدم، مش هنعرض حاجة لحد ما الـ useEffect تحوله
   if (!user) {
     return null;
   }
 
-  // لو المستخدم مسجل، اعرض المحتوى
   return children;
 }

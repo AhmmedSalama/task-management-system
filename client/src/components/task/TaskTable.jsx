@@ -9,11 +9,9 @@ import Link from 'next/link';
 export default function TaskTable() {
   const { allTasks, loadingTasks, fetchAllTasks } = useTasks();
   
-  // حالات الفلاتر
   const [statusFilter, setStatusFilter] = useState('');
   const [priorityFilter, setPriorityFilter] = useState('');
 
-  // استدعاء المهام مع الفلاتر لما تتغير
   useEffect(() => {
     const params = {};
     if (statusFilter) params.status = statusFilter;
@@ -36,12 +34,10 @@ export default function TaskTable() {
     return 'text-green-700 bg-green-50 border-green-200';
   };
 
-  // تأمين ضد الـ undefined لتجنب أي إيرور في الـ length
   const tasksList = Array.isArray(allTasks) ? allTasks : [];
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-      {/* قسم الفلاتر */}
       <div className="p-4 border-b border-gray-200 bg-gray-50 flex flex-col sm:flex-row gap-4 items-center justify-between">
         <div className="flex items-center gap-2 text-sm text-gray-600 font-medium">
           <Filter size={16} />
@@ -73,7 +69,6 @@ export default function TaskTable() {
         </div>
       </div>
 
-      {/* الجدول */}
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm whitespace-nowrap">
           <thead className="bg-white border-b border-gray-200 text-gray-600">
