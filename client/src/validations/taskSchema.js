@@ -23,5 +23,5 @@ export const taskSchema = z.object({
     .string()
     .optional()
     .nullable()
-    .transform(val => val === '' ? null : val), /
+    .transform(val => val === '' ? null : val)
 });
