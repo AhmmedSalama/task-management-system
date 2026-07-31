@@ -4,6 +4,14 @@ A production-minded, full-stack team task board application built to demonstrate
 
 ---
 
+## 🌐 Live Demo & API Documentation
+
+* **Frontend Application (Vercel):** [https://task-management-system-ten-mu.vercel.app/] *(Replace with your actual Vercel URL)*
+* **Backend API (Render):** [https://task-management-system-fuet.onrender.com]
+* **Swagger API Docs (Live):** [https://task-management-system-fuet.onrender.com/api-docs]
+
+---
+
 ## 📌 Executive Summary & Assessment Compliance
 
 This project fulfills and exceeds all core functional requirements and engineering expectations outlined in the **Full Stack Node.js Technical Assessment**:
@@ -55,6 +63,7 @@ task-management/
     ├── src/tests/          # Automated Jest & Supertest test suites
     └── swagger.yaml        # OpenAPI specification file
 
+
 ```
 
 ---
@@ -74,6 +83,7 @@ Navigate to the server directory, install dependencies, and configure environmen
 cd server
 npm install
 
+
 ```
 
 Create a `.env` file based on `.env.example`:
@@ -85,12 +95,14 @@ JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRES_IN=7d
 CLIENT_URL=http://localhost:3000
 
+
 ```
 
 Seed the database with initial test accounts (Admin & Member):
 
 ```bash
 npm run seed
+
 
 ```
 
@@ -99,9 +111,10 @@ Start the backend development server:
 ```bash
 npm run dev
 
+
 ```
 
-*(Server runs on `http://localhost:5000`)*
+*(Server runs locally on `http://localhost:5000`)*
 
 ---
 
@@ -113,12 +126,14 @@ Open a separate terminal, navigate to the client directory, install dependencies
 cd client
 npm install
 
+
 ```
 
 Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5000/api
+
 
 ```
 
@@ -127,15 +142,26 @@ Start the frontend development server:
 ```bash
 npm run dev
 
+
 ```
 
-*(Application runs on `http://localhost:3000`)*
+*(Application runs locally on `http://localhost:3000`)*
 
 ---
 
 ## 📖 API Documentation & Swagger
 
-Interactive API documentation is automatically hosted by the backend server. Once running, open your browser at:
+Interactive API documentation is automatically hosted by the backend server.
+
+**Live Documentation (Recommended):**
+
+```text
+[https://task-management-system-fuet.onrender.com/api-docs](https://task-management-system-fuet.onrender.com/api-docs)
+
+```
+
+**Local Documentation:**
+Once the local server is running, open your browser at:
 
 ```text
 http://localhost:5000/api-docs
@@ -162,6 +188,7 @@ To execute tests:
 cd server
 npm test
 
+
 ```
 
 For test coverage reports:
@@ -170,22 +197,22 @@ For test coverage reports:
 cd server
 npm run test:coverage
 
+
 ```
 
 ---
 
 ## 👥 Test Credentials & Roles
 
-By running the backend seed script (`npm run seed`), two default test accounts are generated:
+By running the backend seed script (`npm run seed`), two default test accounts are generated for local testing. (You can also register new accounts via the live application).
 
 1. **Administrator Account (`Admin` Role):**
+
 * Absolute access to all system projects, tasks, user management, and system-wide statistics.
 
-
 2. **Member Account (`Member` Role):**
+
 * Scoped access restricted strictly to owned or assigned projects and tasks, enforcing strict authorization barriers.
-
-
 
 ---
 
