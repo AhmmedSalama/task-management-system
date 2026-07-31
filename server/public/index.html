@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management API</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.6; }
+      code { background: #f3f3f3; padding: 0.2rem 0.4rem; border-radius: 4px; }
+      .card { border: 1px solid #ddd; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Task Management API</h1>
+    <div class="card">
+      <h2>Quick start</h2>
+      <p>Use <code>/api/auth/register</code> and <code>/api/auth/login</code> to get a JWT token.</p>
+      <p>Then call <code>/api/projects</code> and <code>/api/tasks/:projectId</code> with the <code>Authorization: Bearer &lt;token&gt;</code> header.</p>
+    </div>
+    <div class="card">
+      <h2>Documentation</h2>
+      <p>Open <a href="/api-docs">/api-docs</a> for Swagger UI.</p>
+      <p>Health check: <a href="/api/health">/api/health</a></p>
+    </div>
+  </body>
+</html>
